@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Trabalho2</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="auth_success">Authentication Successful</string>
+    <string name="auth_fail">Authentication Failed</string>
+    <string name="click_to_login">Click to Login</string>
+    <string name="click_to_register">Click to Register</string>
+    <string name="logout">Logout</string>
+    <string name="title_activity_partidos">Partidos</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="partidos">Partidos</string>
+    <string name="deputados">Deputados</string>
+    <string name="settings">Configurações</string>
+</resources>

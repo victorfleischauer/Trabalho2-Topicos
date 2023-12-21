@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "155826745350",
+    "project_id": "trabalho2-599d6",
+    "storage_bucket": "trabalho2-599d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155826745350:android:a7065dc07401fc16501387",
+        "android_client_info": {
+          "package_name": "edu.ifsul.trabalho2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2a1FXy3SOAKvsx2yyM40623Q23iFihiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
