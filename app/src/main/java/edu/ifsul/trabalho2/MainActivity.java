@@ -15,8 +15,17 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth auth;
     FirebaseUser user;
-    TextView textView;
-    Button button;
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = auth.getCurrentUser();
+        if(currentUser != null){
+            Intent intent = new Intent(getApplicationContext(), Partidos.class);
+            startActivity(intent);
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,26 +33,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         auth = FirebaseAuth.getInstance();
-        button = findViewById(R.id.logout);
-        textView = findViewById(R.id.userDetails);
         user = auth.getCurrentUser();
+        //TODO:
         if (user == null){
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
             finish();
         }
-        else {
-            textView.setText(user.getEmail());
-        }
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 }
