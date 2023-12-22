@@ -31,7 +31,7 @@ public class PerfilDeputado extends AppCompatActivity {
     private int deputadoId;
     private Deputado deputado;
     private ImageView imagem;
-    private TextView nomeText, partidoText, emailText, condicaoText;
+    private TextView nomeText, partidoText, emailText, condicaoText, ufText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class PerfilDeputado extends AppCompatActivity {
         partidoText = findViewById(R.id.partido);
         emailText = findViewById(R.id.email);
         condicaoText = findViewById(R.id.condicao);
+        ufText = findViewById(R.id.uf);
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(getString(R.string.apiUrl))
@@ -97,6 +98,7 @@ public class PerfilDeputado extends AppCompatActivity {
                     partidoText.setText("Partido: " + deputado.getUltimoStatus().getSiglaPartido());
                     emailText.setText("Email: " + deputado.getUltimoStatus().getEmail());
                     condicaoText.setText("Condição Eleitoral: " + deputado.getUltimoStatus().getCondicaoEleitoral());
+                    ufText.setText("UF: " + deputado.getUltimoStatus().getSiglaUf());
                 }
             }
             @Override
