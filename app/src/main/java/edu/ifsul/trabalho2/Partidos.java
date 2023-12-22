@@ -27,7 +27,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Partidos extends AppCompatActivity {
 
-    private final String URL = "https://dadosabertos.camara.leg.br/api/v2/";
     private Retrofit retrofit;
 
     BottomNavigationView bottomNavigationView;
@@ -43,7 +42,7 @@ public class Partidos extends AppCompatActivity {
         setContentView(R.layout.activity_partidos);
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(URL)
+                .baseUrl(getString(R.string.apiUrl))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -98,7 +97,7 @@ public class Partidos extends AppCompatActivity {
     private void consultarApi() {
         RestService restService = retrofit.create(RestService.class);
 
-        Call<PartidoResultArray> call = restService.getPartidosLista();
+        Call<PartidoResultArray> call = restService.getPartidoResultArray();
 
         call.enqueue(new Callback<PartidoResultArray>() {
             @Override
