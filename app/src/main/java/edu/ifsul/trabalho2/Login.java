@@ -25,7 +25,7 @@ public class Login extends AppCompatActivity {
     TextInputEditText editTextEmail, editTextPassword;
     ProgressBar progressBar;
     Button buttonLogin;
-    TextView textViewRegisterNow;
+    TextView textViewParaInicio;
 
     @Override
     public void onStart() {
@@ -50,7 +50,7 @@ public class Login extends AppCompatActivity {
         editTextPassword = findViewById(R.id.password);
         progressBar = findViewById(R.id.progressBar);
         buttonLogin = findViewById(R.id.btn_login);
-        textViewRegisterNow = findViewById(R.id.registerNow);
+        textViewParaInicio = findViewById(R.id.textViewParaInicio);
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,10 +95,10 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        textViewRegisterNow.setOnClickListener(new View.OnClickListener() {
+        textViewParaInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Register.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
             }

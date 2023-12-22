@@ -25,7 +25,7 @@ public class Register extends AppCompatActivity {
     TextInputEditText editTextEmail, editTextPassword;
     ProgressBar progressBar;
     Button buttonReg;
-    TextView textViewLoginNow;
+    TextView textViewParaInicio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class Register extends AppCompatActivity {
         editTextPassword = findViewById(R.id.password);
         progressBar = findViewById(R.id.progressBar);
         buttonReg = findViewById(R.id.btn_register);
-        textViewLoginNow = findViewById(R.id.loginNow);
+        textViewParaInicio = findViewById(R.id.textViewParaInicio);
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,10 +89,10 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        textViewLoginNow.setOnClickListener(new View.OnClickListener() {
+        textViewParaInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
             }

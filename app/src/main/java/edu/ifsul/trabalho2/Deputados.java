@@ -65,13 +65,10 @@ public class Deputados extends AppCompatActivity {
             }
         });
 
-        //Inicializar variável
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        //Setar o botão
         bottomNavigationView.setSelectedItemId(R.id.navigation_deputados);
 
-        //Implementar o listener do item selecionado
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

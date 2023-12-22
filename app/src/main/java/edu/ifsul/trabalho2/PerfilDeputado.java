@@ -51,13 +51,10 @@ public class PerfilDeputado extends AppCompatActivity {
 
         deputadoId = getIntent().getIntExtra("deputadoId", 0);
 
-        //Inicializar variável
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        //Setar o botão
         bottomNavigationView.setSelectedItemId(R.id.navigation_deputados);
 
-        //Implementar o listener do item selecionado
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
