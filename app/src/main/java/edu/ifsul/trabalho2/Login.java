@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), Partidos.class);
             startActivity(intent);
             finish();
         }
@@ -81,7 +81,7 @@ public class Login extends AppCompatActivity {
                                     Toast.makeText(Login.this, getString(R.string.auth_success),
                                             Toast.LENGTH_SHORT).show();
 
-                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(), Partidos.class);
                                     startActivity(intent);
                                     finish();
 
