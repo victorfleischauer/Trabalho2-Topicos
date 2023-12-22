@@ -28,18 +28,6 @@ public class Register extends AppCompatActivity {
     TextView textViewLoginNow;
 
     @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
@@ -69,6 +57,14 @@ public class Register extends AppCompatActivity {
                 if (TextUtils.isEmpty(password)) {
                     Toast.makeText(Register.this, getString(R.string.enter_password), Toast.LENGTH_SHORT).show();
                     return;
+                }
+
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                if(currentUser != null){
+                    Toast.makeText(Register.this, "Saindo de conta prévia",
+                            Toast.LENGTH_SHORT).show();
+                    FirebaseAuth.getInstance().signOut();
+
                 }
 
                 mAuth.createUserWithEmailAndPassword(email, password)
