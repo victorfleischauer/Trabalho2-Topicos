@@ -2,6 +2,7 @@ package edu.ifsul.trabalho2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,11 +15,26 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
+import edu.ifsul.trabalho2.model.Partido;
+import edu.ifsul.trabalho2.model.PartidoResultArray;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class Partidos extends AppCompatActivity {
+
+    private final String URL = "https://dadosabertos.camara.leg.br/api/v2/";
+    private Retrofit retrofit;
 
     BottomNavigationView bottomNavigationView;
     private ListView lista;
     private ArrayAdapter<String> adapter;
+
+    private List<Partido> listaPartidosApi;
 
 
     @Override
@@ -26,20 +42,27 @@ public class Partidos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_partidos);
 
+        retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
         adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1);
         lista = findViewById(R.id.list_view);
 
         lista.setAdapter(adapter);
 
-        adapter.add("Teste1");
-        adapter.add("Teste2");
+        consultarApi();
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String itemSelecionado = adapter.getItem( position );
+                Partido partidoSelecionado = listaPartidosApi.get(position);
 
-                Toast.makeText(getApplicationContext(), itemSelecionado, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), PerfilPartido.class);
+                i.putExtra("partidoId", partidoSelecionado.getId());
+                startActivity(i);
+                finish();
             }
         });
 
@@ -68,6 +91,30 @@ public class Partidos extends AppCompatActivity {
                     return true;
                 }
                 return false;
+            }
+        });
+    }
+
+    private void consultarApi() {
+        RestService restService = retrofit.create(RestService.class);
+
+        Call<PartidoResultArray> call = restService.getPartidosLista();
+
+        call.enqueue(new Callback<PartidoResultArray>() {
+            @Override
+            public void onResponse(Call<PartidoResultArray> call, Response<PartidoResultArray> response) {
+                if (response.isSuccessful()) {
+                    listaPartidosApi = response.body().getPartidos();
+
+                    for(Partido partido : listaPartidosApi) {
+                        adapter.add(partido.getSigla() + " - " + partido.getNome());
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<PartidoResultArray> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), getString(R.string.erro) + t.getMessage(), Toast.LENGTH_LONG).show();
+                Log.d("ErroAPI:", t.getMessage());
             }
         });
     }

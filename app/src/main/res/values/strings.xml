@@ -18,4 +18,5 @@
     <string name="partidos">Partidos</string>
     <string name="deputados">Deputados</string>
     <string name="settings">Configurações</string>
+    <string name="erro">"Erro: "</string>
 </resources>
