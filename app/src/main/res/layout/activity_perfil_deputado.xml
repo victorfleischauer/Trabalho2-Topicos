@@ -9,63 +9,58 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="84dp"
-        android:orientation="vertical"
+        android:background="#AEABAB"
         android:gravity="center"
-        android:layout_marginLeft="20dp"
-        >
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="20dp">
 
         <ImageView
             android:id="@+id/imagem"
-            android:layout_width="wrap_content"
+            android:layout_width="120sp"
             android:layout_height="160sp"
-            android:layout_gravity="left"
-        />
+            android:layout_gravity="left" />
 
         <TextView
             android:id="@+id/nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nome: "
             android:gravity="left"
-            android:textSize="16dp"
-            />
+            android:text="Nome: "
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/partido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Partido: "
             android:gravity="left"
-            android:textSize="16dp"
-            />
+            android:text="Partido: "
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email: "
             android:gravity="left"
-            android:textSize="16dp"
-            />
+            android:text="Email: "
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/uf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="UF: "
             android:gravity="left"
-            android:textSize="16dp"
-            />
+            android:text="UF: "
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/condicao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Condição Eleitoral: "
             android:gravity="left"
-            android:textSize="16dp"
-            />
+            android:text="Condição Eleitoral: "
+            android:textSize="16dp" />
 
     </LinearLayout>
 
