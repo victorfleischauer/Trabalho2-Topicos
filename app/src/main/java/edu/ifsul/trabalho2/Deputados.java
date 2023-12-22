@@ -56,10 +56,10 @@ public class Deputados extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Deputado partidoSelecionado = listaDeputadosApi.get(position);
+                Deputado deputadoSelecionado = listaDeputadosApi.get(position);
 
                 Intent i = new Intent(getApplicationContext(), PerfilDeputado.class);
-                i.putExtra("deputadoId", partidoSelecionado.getId());
+                i.putExtra("deputadoId", deputadoSelecionado.getId());
                 startActivity(i);
                 finish();
             }

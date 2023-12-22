@@ -10,16 +10,16 @@ import retrofit2.http.Path;
 
 public interface RestService {
 
-    @GET("partidos/")
+    @GET("partidos")
     Call<PartidoResultArray> getPartidoResultArray();
 
-    @GET("deputados/")
+    @GET("deputados")
     Call<DeputadoResultArray> getDeputadoResultArray();
 
     @GET("deputados/{id}/")
-    Call<PerfilDeputadoResult> getPerfilDeputadoResult(@Path("{id}") Long id);
+    Call<PerfilDeputadoResult> getPerfilDeputadoResult(@Path("id") int id);
 
     @GET("partidos/{id}/")
-    Call<PerfilPartidoResult> getPerfilPartidoResult(@Path("{id}") Long id);
+    Call<PerfilPartidoResult> getPerfilPartidoResult(@Path("id") Long id);
 
 }

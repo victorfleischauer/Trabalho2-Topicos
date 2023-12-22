@@ -12,12 +12,23 @@
         android:id="@+id/userDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="@string/welcome"/>
 
     <Button
-        android:id="@+id/logout"
-        android:text="@string/logout"
+        android:id="@+id/register"
+        android:text="@string/register"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"/>
+
+    <Button
+        android:id="@+id/login"
+        android:text="@string/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"/>
+
 
 </LinearLayout>

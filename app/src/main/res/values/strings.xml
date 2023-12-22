@@ -20,4 +20,5 @@
     <string name="settings">Configurações</string>
     <string name="erro">"Erro: "</string>
     <string name="apiUrl">https://dadosabertos.camara.leg.br/api/v2/</string>
+    <string name="welcome">Bem vindo!</string>
 </resources>
